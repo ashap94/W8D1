@@ -1,0 +1,19 @@
+<h2><%= @post.title %></h2>
+<p><%=@post.url%></p>
+<p><%=@post.content%></p>
+<ul>
+  <% @post.comments.each do |comment| %>
+    <li>
+      <%= comment.content %>
+    </li>
+  <% end %>
+</ul>
+
+<p>Add Comment</p>
+<form action="<%=post_comments_url(@post)%>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>%">
+  <label>Comment
+    <textarea name="comment[content]"></textarea>
+  </label>
+  <input type="submit" value="Add Comment">
+</form>

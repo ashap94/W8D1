@@ -1,0 +1,15 @@
+<h2><%=@sub.title%></h2>
+<p><%=@sub.description%></p>
+<a href="<%=subs_url%>">Main Page</a>
+
+<a href="<%=new_post_url%>">Create Post</a>
+
+<h2>Posts</h2>
+
+<ul>
+<% @sub.posts.each do |post| %>
+  <li>
+    <a href="<%=post_url(post)%>"><%= post.title %></a>
+  </li>
+<% end %>
+</ul>
